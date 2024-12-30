@@ -5,7 +5,8 @@
 
     <link rel="icon" type="image/x-icon" href="<?php echo $REVERSE_PROXY_URL; ?>/favicon-organization.ico">
     <link rel="icon" type="image/png" sizes="192x192" href="<?php echo $REVERSE_PROXY_URL; ?>/favicon-organization.png" />
-    <title><?php echo _("Organize PDF"); ?></title>
+    <title>Signature PDF - Organiser les pages d'un PDF en ligne</title>
+    <meta name="description" content="Logiciel libre en ligne qui permet de fusionner, trier, pivoter, supprimer et extraire les pages de PDF">
   </head>
   <body>
     <noscript>
@@ -20,11 +21,11 @@
             <p class="fs-5 fw-light mb-3 subtitle text-dark text-nowrap mt-2" style="overflow: hidden; text-overflow: ellipsis;"><?php echo _("Merge, sort, rotate, delete, extract pages"); ?></p>
             <div class="col-md-6 col-lg-5 col-xl-4 col-xxl-3 mx-auto">
                 <div class="col-12">
-                  <label class="form-label mt-3" for="input_pdf_upload"><?php echo _("Choose a PDF"); ?></label>
+                  <label class="form-label mt-4" for="input_pdf_upload"><?php echo _("Choose a PDF"); ?></label>
                   <input id="input_pdf_upload" placeholder="<?php echo _("Choose a PDF"); ?>" class="form-control form-control-lg" type="file" accept=".pdf,application/pdf" multiple="true" />
-                  <?php if($PDF_DEMO_LINK): ?>
                   <p class="mt-2 small fw-light text-dark">&nbsp;</p>
-                  <a class="btn btn-sm btn-link opacity-75" href="#<?php echo $PDF_DEMO_LINK ?>"><?php echo _("Test with a demo PDF"); ?></a>
+                  <?php if($PDF_DEMO_LINK): ?>
+                      <p class="mt-4"><a class="link-opacity-75 link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover small" href="#<?php echo $PDF_DEMO_LINK ?>"><?php echo _("Test with a demo PDF") ?></a></p>
                   <?php endif; ?>
                 </div>
             </div>
@@ -46,11 +47,11 @@
         <div class="offcanvas offcanvas-end show d-none d-md-block shadow-sm" data-bs-backdrop="false" data-bs-scroll="true" data-bs-keyboard="false" tabindex="-1" id="sidebarTools" aria-labelledby="sidebarToolsLabel">
             <a class="btn btn-close btn-sm position-absolute opacity-25 d-none d-sm-none d-md-block" title="<?php echo _("Close this PDF and return to home"); ?>" style="position: absolute; top: 2px; right: 2px; font-size: 10px;" href="<?php echo $REVERSE_PROXY_URL; ?>/organization"></a>
             <div class="offcanvas-header mb-0 pb-0">
-                <h5 class="mb-1 d-block w-100" id="sidebarToolsLabel"><?php echo _("PDF organization"); ?> <span class="float-end me-2" title="<?php echo _("This PDF is stored on your computer to be signed by you only"); ?>"><i class="bi-ui-checks-grid"></i></span></h5>
+                <h5 class="mb-1 d-block w-100" id="sidebarToolsLabel"><?php echo _("PDF organization"); ?> <span class="float-end me-2"><i class="bi-ui-checks-grid"></i></span></h5>
                 <button type="button" class="btn-close text-reset d-md-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body pt-3" style="padding-bottom: 60px;">
-                <div id="list_pdf_container">
+                <div id="list_pdf_container" style="max-height: 400px; overflow: auto;">
                     <ul id="list_pdf" class="list-group">
                     </ul>
                 </div>

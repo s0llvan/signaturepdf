@@ -1,21 +1,22 @@
-[![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0) [![État de la traduction](https://hosted.weblate.org/widget/signature-pdf/application/svg-badge.svg)](https://hosted.weblate.org/engage/signature-pdf/)
+[![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0) [![État de la traduction](https://hosted.weblate.org/widget/signature-pdf/application/svg-badge.svg)](https://hosted.weblate.org/engage/signature-pdf/) [![Docker Pull](https://img.shields.io/docker/pulls/xgaia/signaturepdf)](https://hub.docker.com/r/xgaia/signaturepdf) [<img src="https://install-app.yunohost.org/install-with-yunohost.svg" alt="Install Signaturepdf with YunoHost" style="height:20px" />](https://apps.yunohost.org/app/signaturepdf)
 # Signature PDF
 
 Free web software for signing (alone or with others), organizing (merge, sort, rotate, delete, extract pages, ...), editing metadatas or compressing PDFs.
 
 ## Instances
 List of instances where you can use this software:
-- [pdf.24eme.fr](https://pdf.24eme.fr)
-- [pdf.libreon.fr](https://pdf.libreon.fr)
-- [pdf.hostux.net](https://pdf.hostux.net)
-- [pdf.nebulae.co](https://pdf.nebulae.co)
+- [pdf.24eme.fr](https://pdf.24eme.fr) (by [24eme](https://www.24eme.fr/services-libres/))
+- [pdf.libreon.fr](https://pdf.libreon.fr) (by [Libreon](https://libreon.fr/))
+- [pdf.hostux.net](https://pdf.hostux.net) (by [Hostux](https://hostux.network/))
+- [pdf.nebulae.co](https://pdf.nebulae.co) (by [Nebulae](https://nebulae.co/))
 - [pdf.kaosx.ovh](https://pdf.kaosx.ovh)
-- [pdf.ti-nuage.fr](https://pdf.ti-nuage.fr)
-- [pdf.cemea.org](https://pdf.cemea.org)
-- [pdf.spirio.fr](https://pdf.spirio.fr)
-- [pdf.sequanux.org](https://pdf.sequanux.org)
-- [pdf.deblan.org](https://pdf.deblan.org)
-- [pdf.ouvaton.coop](https://pdf.ouvaton.coop)
+- [pdf.ti-nuage.fr](https://pdf.ti-nuage.fr) (by [Ti Nuage](https://www.ti-nuage.fr/))
+- [pdf.cemea.org](https://pdf.cemea.org) (by [Les Ceméa](https://mallette.cemea.org))
+- [pdf.spirio.fr](https://pdf.spirio.fr) (by [Spirio.fr](https://spirio.fr/))
+- [pdf.sequanux.org](https://pdf.sequanux.org) (by [Sequanux](https://www.sequanux.org/))
+- [pdf.deblan.org](https://pdf.deblan.org) (by [Deblan](https://wiki.deblan.org/hosting/overview/))
+- [pdf.ouvaton.coop](https://pdf.ouvaton.coop) (by [OUVATON](https://ouvaton.coop/))
+- [signpdf.liber-it.fr](https://signpdf.liber-it.fr) (by [Liber-IT](https://site.liber-it.fr/))
 
 _Feel free to add yours through an issue or a pull request._
 
@@ -25,6 +26,10 @@ Open-source software under the AGPL V3 license.
 ## Table of Contents
 
 - [Installation](#installation)
+    - [Debian/Ubuntu](installation.md#debian-ubuntu)
+    - [Docker](installation.md#deploy-with-docker)
+    - [Linux Alpine](installation.md#alpine)
+    - [Package](installation.md#package)
 - [Configuration](#configuration)
     - [Enabling and Configuring Multi-Signature Mode](#enabling-and-configuring-multi-signature-mode)
     - [Disabling the Organize Mode](#disabling-the-organize-mode)
@@ -34,20 +39,13 @@ Open-source software under the AGPL V3 license.
 - [Tests](#tests)
 - [Libraries Used](#libraries-used)
 - [Contributions](#contributions)
-    - [Translation](#translation)
-    - [Contributors](#contributors)
-    - [Fundings](#fundings)
 - [Screenshots](#screenshots)
-    - [Signature feature](#signature-feature)
-    - [Organizing feature](#organizing-feature)
-    - [Metadata feature](#metadata-feature)
-    - [Compression feature](#compression-feature)
 
 
 ## Installation
 
-- [Debian/Ubuntu](installation.md#debian)
-- [Docker](installation.md#docker)
+- [Debian/Ubuntu](installation.md#debian-ubuntu)
+- [Docker](installation.md#deploy-with-docker)
 - [Linux Alpine](installation.md#alpine)
 - [Package](installation.md#package)
 
@@ -84,6 +82,17 @@ For example, for Apache:
 ```
 chown www-data /path/to/folder/to/store/pdf
 ```
+
+You can enable PDFs to be stored encrypted on the server with a symmetric key known only to the signers.
+
+To activate it, gpg needs to be installed and option PDF_STORAGE_ENCRYPTION must be set to true.
+
+In the `config/config.ini` file :
+
+```
+PDF_STORAGE_ENCRYPTION=true
+```
+
 ### Enabling digital signature
 
 The digital signature depends on `pdfsig` from the poppler project (poppler-utils debian package) and `certutil` from libnss3 project (libnss3-tools debian package).
@@ -169,7 +178,7 @@ DEBUG=1 make test
 - **OpenType.js** Tools for converting text and its font into paths: https://github.com/opentypejs/opentype.js (MIT)
 - **ImageMagick** Image manipulation toolset: https://imagemagick.org/ (Apache-2.0)
 - **Caveat** Handwriting-style font: https://github.com/googlefonts/caveat (OFL-1.1)
-- **PDF-LIB** JavaScript library for PDF manipulation used for writing metadata: https://pdf-lib.js.org/ (MIT)
+- **PDF-LIB** JavaScript library for PDF manipulation used for writing metadata: https://pdf-lib.js.org/ (MIT), we use the fork https://github.com/cantoo-scribe/pdf-lib still maintained
 - **Ghostscript** GPL Ghostscript is a software suite for processing PostScript and PDF file formats (GPLv3)
 - **GPG** GnuPG allows you to encrypt and sign your data and communications (GPLv3)
 
@@ -199,7 +208,13 @@ Vincent LAURENT (24ème), Jean-Baptiste Le Metayer (24ème), Xavier Garnier (Log
 - 1 950 € excl. taxes from the company Logilab for the development of the metadata editing feature
 - 100 € excl. taxes donations from the company Spirkop
 - 100 € excl. taxes donations from the company PDG IT
-- 1 040 € excl. taxes from the foundation NLNet pour software internationalization
+- 1 040 € excl. taxes from the foundation NLNet for software internationalization
+- 1 040 € excl. taxes from the foundation NLNet for compress / Reduce PDF File Size
+- 1 040 € excl. taxes from the foundation NLNet for encrypt PDFs transmitted and stored on servers
+- 1 040 € excl. taxes from the foundation NLNet for signature signed and verified with a key
+- 1 040 € excl. taxes from the foundation NLNet for client side organization of the PDF
+- 520 € excl. taxes from the foundation NLNet for debian package
+- 520 € excl. taxes from the foundation NLNet for allow PDFs to be stored outside
 
 The development of the software was primarily done during the working hours of 24ème employees.
 
