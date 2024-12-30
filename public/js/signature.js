@@ -678,6 +678,7 @@ function createEventsListener() {
         if(document.getElementById('nav-type-tab').classList.contains('active')) {
             let fontPath = fontCaveat.getPath(document.getElementById('input-text-signature').value, 0, 0, 42);
             let fabricPath = new fabric.Path(fontPath.toPathData());
+            fabricPath.set({ fill: '#d3000a' });
             fabricPath.top = 0;
             fabricPath.left = 0;
             fabricPath.height = fabricPath.getScaledHeight();

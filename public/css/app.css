@@ -12,6 +12,13 @@
     src: url(/vendor/fonts/Tajawal-Medium.ttf) format('truetype');
 }
 
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: url(/vendor/fonts/Roboto-Bold.ttf) format('truetype');
+}
+
 #container-pages {
     overflow: auto;
 }
@@ -40,7 +47,7 @@
 }
 
 #input-text-signature:dir(ltr) {
-    font-family: Caveat;
+    font-family: Roboto;
     font-size: 48px;
 }
 

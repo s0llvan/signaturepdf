@@ -304,7 +304,7 @@
     <?php elseif ($TRANSLATION_LANGUAGE == 'kab'): ?>
     url_font = <?php echo json_encode('/vendor/fonts/FiraSans-MediumItalic.ttf') ?>
     <?php else: ?>
-    url_font = <?php echo json_encode('/vendor/fonts/Caveat-Regular.ttf') ?>
+    url_font = <?php echo json_encode('/vendor/fonts/Roboto-Bold.ttf') ?>
     <?php endif; ?>
     </script>
     <script src="<?php echo $REVERSE_PROXY_URL; ?>/js/common.js?<?php echo ($COMMIT) ? $COMMIT : filemtime($ROOT."/public/js/common.js") ?>"></script>
